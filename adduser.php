@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
     <title>Add user</title>
-
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <?php require 'header.php' ?>
   </head>
   <body>
     <div class="content">
       <h1>Add user</h1>
-      <form method="POST" action="userlist.html">
+      <form method="POST" action="userlist.php">
         <label>Username: <input type="text" name="username"></label><br>
         <label>Password: <input type="password" name="password"></label><br>
         <input type="submit" value="Add">

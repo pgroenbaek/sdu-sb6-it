@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
     <title>Upload</title>
-
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <?php require 'header.php' ?>
   </head>
   <body>
     <div class="content">
       <h1>Upload</h1>
-      <form method="POST" action="gallery.html">
+      <form method="POST" action="gallery.php">
         <label>Select file: <input type="text" name="username"></label><button type="button">Browse...</button><br>
         <input type="submit" value="Submit">
       </form>

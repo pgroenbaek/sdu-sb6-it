@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
     <title>List of users</title>
-
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <?php require 'header.php' ?>
   </head>
   <body>
     <div class="menu">
-      <a href="gallery.html">Gallery</a>&nbsp;&nbsp;
-      <a href="userlist.html" class="selected">User list</a>&nbsp;&nbsp;
-      <a href="adduser.html" class="right">Add user</a>
+      <a href="gallery.php">Gallery</a>&nbsp;&nbsp;
+      <a href="userlist.php" class="selected">User list</a>&nbsp;&nbsp;
+      <a href="adduser.php" class="right">Add user</a>
     </div>
 
     <div class="content">

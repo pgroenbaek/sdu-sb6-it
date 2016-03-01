@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
     <title>Gallery</title>
-
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <?php require 'header.php' ?>
   </head>
   <body>
     <div class="menu">
-      <a href="gallery.html" class="selected">Gallery</a>&nbsp;&nbsp;
-      <a href="userlist.html">User list</a>&nbsp;&nbsp;
-      <a href="upload.html" class="right">Upload</a>&nbsp;&nbsp;
+      <a href="gallery.php" class="selected">Gallery</a>&nbsp;&nbsp;
+      <a href="userlist.php">User list</a>&nbsp;&nbsp;
+      <a href="upload.php" class="right">Upload</a>&nbsp;&nbsp;
     </div>
 
     <div class="content">

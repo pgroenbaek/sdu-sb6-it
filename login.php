@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
     <title>Login</title>
-
-    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <?php require 'header.php' ?>
   </head>
   <body>
     <div class="content">
       <h1>Login</h1>
-      <form method="POST" action="gallery.html">
+      <form method="POST" action="gallery.php">
         <label><span>Username: </span><input type="text" name="username"></label><br>
         <label><span>Password: </span><input type="password" name="password"></label><br>
         <input type="submit" value="Login">
