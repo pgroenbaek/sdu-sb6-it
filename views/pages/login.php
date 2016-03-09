@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Login</title>
-    <?php require 'header.php' ?>
-  </head>
-  <body>
+
+<?php require VIEW_DIR . '/header.php' ?>
+
     <div class="content">
       <h1>Login</h1>
       <form method="POST" action="gallery.php">
@@ -13,5 +9,5 @@
         <input type="submit" value="Login">
       </form>
     </div>
-  </body>
-</html>
+
+<?php require VIEW_DIR . '/footer.php' ?>
