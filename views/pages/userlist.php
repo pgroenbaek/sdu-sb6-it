@@ -18,15 +18,14 @@
 
         <?php
 
-        for($i = 0; $i < count($logincredentials); $i++) {
-
+        foreach($users as $user) {
           $isOnline = '[&nbsp;&nbsp;]';
-          if($logincredentials[$i][0] == $_SESSION['username']) {
+          if($user == $_SESSION['username']) {
             $isOnline = '[X]';
           }
 
           echo '<tr>';
-          echo '  <th>' . $logincredentials[$i][0] . '</th>';
+          echo '  <th>' . $user . '</th>';
           echo '  <th>' . $isOnline . '</th>';
           echo '</tr>';
         }

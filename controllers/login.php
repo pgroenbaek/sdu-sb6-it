@@ -1,13 +1,23 @@
 <?php
 
 if(!empty($_POST['username']) && !empty($_POST['password'])) {
-  for($index = 0; $index < count($logincredentials); $index++) {
-    if($logincredentials[$index][0] == $_POST['username'] && $logincredentials[$index][1] == $_POST['password']) {
-      $_SESSION['username'] = $_POST['username'];
-      $_SESSION['isLoggedIn'] = true;
-      header('Location: /');
-      exit;
-    }
+
+  try {
+    $stmt = $db->prepare("SELECT * FROM users WHERE username=? AND password=?");
+    $stmt->bindValue(1, $_POST['username'], PDO::PARAM_STR);
+    $stmt->bindValue(2, $_POST['password'], PDO::PARAM_STR);
+    $stmt->execute();
+    $count = $stmt->rowCount();
+  } catch(PDOException $ex) {
+    echo "An error occured!";
+    echo $ex->getMessage();
+  }
+
+  if($count >= 1) {
+    $_SESSION['username'] = $_POST['username'];
+    $_SESSION['isLoggedIn'] = true;
+    header('Location: /');
+    exit;
   }
 }
 

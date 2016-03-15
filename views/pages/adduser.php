@@ -10,7 +10,7 @@
       <h1>Add user</h1>
       <form method="POST" action="/users">
         <label>Username: <input type="text" name="username"></label><br>
-        <label>Password: <input type="password" name="password"></label><br>
+        <label>Password: <input type="text" name="password"></label><br>
         <input type="submit" value="Add">
       </form>
     </div>

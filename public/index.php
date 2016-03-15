@@ -18,10 +18,8 @@ define('VIEW_DIR', realpath(__DIR__ . '/../views'));
 // Handles the PHPSESSID cookie and populates the $_SESSION array with the users data
 session_start();
 
-$logincredentials = array(
-  array("testuser", "12345"),
-  array("testuser2", "123456")
-);
+
+
 
 
 //** Routing **//

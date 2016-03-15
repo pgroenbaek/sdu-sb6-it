@@ -14,23 +14,20 @@
 
         <?php
 
-        if($handle = opendir('./public/uploads/')) {
 
-          while(false !== ($entry = readdir($handle))) {
-            if($entry != '.' && $entry != '..') {
-              echo '<div class="gallery-item">';
-              echo '  <div class="gallery-item-name">';
-              echo '    <p><b>' . $entry . '<b></p>';
-              echo '  </div>';
-              echo '  <div class="gallery-item-image">';
-              echo '    <img alt="image" src="./public/uploads/' . $entry . '"/>';
-              echo '  </div>';
-              echo '</div>';
-            }
+          foreach($images as $image) {
+            echo '<div class="gallery-item">';
+            echo '  <div class="gallery-item-name">';
+            echo '    <p><b>' . $image['imagename'] . '<b></p>';
+            echo '  </div>';
+            echo '  <div class="gallery-item-postedby">';
+            echo '    <p><b>Posted by ' . $image['username'] . '<b></p>';
+            echo '  </div>';
+            echo '  <div class="gallery-item-image">';
+            echo '    <img alt="image" src="./uploads/' . $image['imageid'] . '.' . $image['imageextension'] . '"/>';
+            echo '  </div>';
+            echo '</div>';
           }
-
-        }
-
 
         ?>
 
