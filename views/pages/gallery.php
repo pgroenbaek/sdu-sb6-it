@@ -4,8 +4,8 @@
     <div class="menu">
       <a href="/" class="selected">Gallery</a>&nbsp;&nbsp;
       <a href="/users">User list</a>&nbsp;&nbsp;
-      <a href="/?action=logout" class="right">Log out</a>&nbsp;&nbsp;
-      <a href="/?action=upload" class="right">Upload image</a>
+      <a href="/logout" class="right">Log out</a>&nbsp;&nbsp;
+      <a href="/upload" class="right">Upload image</a>
     </div>
 
     <div class="content">
@@ -18,13 +18,13 @@
           foreach($images as $image) {
             echo '<div class="gallery-item">';
             echo '  <div class="gallery-item-name">';
-            echo '    <p><b>' . $image['imagename'] . '<b></p>';
+            echo '    <p><b>' . $image->getName() . '<b></p>';
             echo '  </div>';
             echo '  <div class="gallery-item-postedby">';
-            echo '    <p><b>Posted by ' . $image['username'] . '<b></p>';
+            echo '    <p><b>Posted by ' . $image->getUser()->getUsername() . '<b></p>';
             echo '  </div>';
             echo '  <div class="gallery-item-image">';
-            echo '    <img alt="image" src="./uploads/' . $image['imageid'] . '.' . $image['imageextension'] . '"/>';
+            echo '    <img alt="' . $image->getName() . '" src="data:image/' . $image->getExtension() . ';base64,' . base64_encode($image->getData()) . '"/>';
             echo '  </div>';
             echo '</div>';
           }

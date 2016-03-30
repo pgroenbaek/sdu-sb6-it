@@ -3,7 +3,7 @@
     <div class="menu">
       <a href="/">Gallery</a>&nbsp;&nbsp;
       <a href="/users">User list</a>&nbsp;&nbsp;
-      <a href="/?action=logout" class="right">Log out</a>
+      <a href="/logout" class="right">Log out</a>
     </div>
 
     <div class="content">
