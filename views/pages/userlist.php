@@ -15,6 +15,7 @@
           <th>Id</th>
           <th>Username</th>
           <th>Online?</th>
+          <th>Actions</th>
         </tr>
 
         <?php
@@ -22,13 +23,14 @@
         foreach($users as $user) {
           echo '<tr>';
           echo '  <td>' . $user->getId() . '</td>';
-          echo '  <td>' . $user->getUsername() . '</td>';
+          echo '  <td>' . htmlspecialchars($user->getUsername(), ENT_QUOTES, 'UTF-8') . '</td>';
           if($user->getIsOnline()) {
             echo '  <td>[X]</td>';
           }
           else {
             echo '  <td>[&nbsp;&nbsp;]</td>';
           }
+          echo '  <td><a href="/users/edit/' . $user->getId() . '">Edit</a> <a href="/users/delete/' . $user->getId() . '">Delete</a></td>';
           echo '</tr>';
         }
 

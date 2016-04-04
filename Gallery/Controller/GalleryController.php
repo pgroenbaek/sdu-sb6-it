@@ -28,7 +28,6 @@ class GalleryController
         $title = 'Uploading image...';
         $userId = $_SESSION['userId'];
 
-
         if(!empty($_FILES['fileupload'])) {
 
           $tmpName = $_FILES['fileupload']['tmp_name'];
@@ -41,23 +40,74 @@ class GalleryController
           $this->imageDao->createImage($user, $fileName, $fileExtension, $data);
         }
 
-        $this->viewGallery();
+        header('Location: /');
     }
 
-    public function viewImage()
+    public function viewImage($imageId)
     {
-        $title = '404 File Not Found';
+        $title = 'Image';
 
-        require VIEW_DIR . '/errors/404.php';
+        $image = $this->imageDao->getImage($imageId);
+
+        require VIEW_DIR . '/pages/image.php';
+    }
+
+    public function viewDeleteImage($imageId)
+    {
+        $title = 'Delete image';
+
+        $image = $this->imageDao->getImage($imageId);
+
+        require VIEW_DIR . '/pages/deleteimage.php';
+    }
+
+    public function performDeleteImage()
+    {
+        $title = 'Deleting image...';
+
+        $imageId = $_POST['imageId'];
+
+        if(!empty($imageId))
+        {
+            $this->imageDao->deleteImage($imageId);
+        }
+
+        header('Location: /');
     }
 
     public function viewGallery()
     {
         $title = 'Gallery';
 
-        $images = $this->imageDao->getAllImages();
+        if(empty($_GET['page']))
+        {
+            $page = 1;
+        }
+        else
+        {
+            $page = $_GET['page'];
+        }
+
+        $images = $this->imageDao->getImagesByPage($page);
+        $pages = $this->imageDao->getPages();
 
         require VIEW_DIR . '/pages/gallery.php';
+    }
+
+    public function retrieveGalleryPage()
+    {
+        if(!empty($_POST['page']))
+        {
+            $page = $_POST['page'];
+        }
+        else {
+            $page = 1;
+        }
+
+        $images = $this->imageDao->getImagesByPage($page);
+        $pages = $this->imageDao->getPages();
+
+        require VIEW_DIR . '/ajax/gallerypage.php';
     }
 }
 

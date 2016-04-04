@@ -1,15 +1,34 @@
-.gallery {
+#gallery, #image {
   width: 100%;
-  display: inline;
+  text-align: center;
+}
+
+#gallery a {
+  text-decoration: none;
 }
 
 .gallery-item {
   background-color: #2ECC71;
+  color: #000000;
+  display: inline-block;
   border-radius: 5px;
   margin: 10px;
   padding: 10px;
-  width: 300px;
-  float: left;
+}
+
+.gallery-item-big {
+  background-color: #2ECC71;
+  color: #000000;
+  border-radius: 5px;
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
+  max-width: 800px;
+  max-height: 600px;
+}
+
+.gallery-item:hover {
+  background-color: #ACF5A8;
 }
 
 .gallery-item-name {
@@ -25,12 +44,25 @@
 }
 
 .gallery-item-image img {
-  display: block;
-  margin: auto;
-  height: auto;
-  max-height: 100%;
-  width: auto;
-  max-width: 100%;
+    display: block;
+    margin: auto;
+    width: auto;
+    height: 145px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.gallery-item-image-big img {
+    display: block;
+    margin: auto;
+    width: auto;
+    height: 460px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.gallery-item:hover img {
+  opacity: 0.8;
 }
 
 body {
@@ -68,6 +100,32 @@ body {
 }
 
 .menu a:hover {
+  background-color: #ACF5A8;
+  border-radius: 5px;
+}
+
+.page-thingy {
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+.page-thingy a {
+  color: #000000;
+  margin: auto;
+  text-align: center;
+  background-color: #2ECC71;
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.page-thingy a.selected {
+  background-color: #91F38C;
+  border-radius: 5px;
+}
+
+.page-thingy a:hover {
   background-color: #ACF5A8;
   border-radius: 5px;
 }

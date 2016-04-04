@@ -8,7 +8,7 @@
 
     <div class="content">
       <h1>Upload</h1>
-      <form enctype="multipart/form-data" method="POST" action="/">
+      <form enctype="multipart/form-data" method="POST" action="/upload">
         <!-- input type="hidden" name="MAX_FILE_SIZE" value="30000" /-->
         <input type="file" name="fileupload">
         <br>

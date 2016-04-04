@@ -13,26 +13,13 @@ class UserDao
         $this->db = $db;
     }
 
-    public function checkUserName($username)
+    public function doesUserExist($username)
     {
         $stmt = $this->db->prepare("SELECT * FROM users WHERE username=?");
         $stmt->bindValue(1, $username, PDO::PARAM_STR);
         $stmt->execute();
         $userCount = $stmt->rowCount();
         if($userCount == 0) {
-            return true;
-        }
-        return false;
-    }
-
-    public function performLogin($username, $password)
-    {
-        $stmt = $this->db->prepare("SELECT * FROM users WHERE username=? AND password=?");
-        $stmt->bindValue(1, $username, PDO::PARAM_STR);
-        $stmt->bindValue(2, $password, PDO::PARAM_STR);
-        $stmt->execute();
-        $count = $stmt->rowCount();
-        if($count == 0) {
             return false;
         }
         return true;
@@ -59,7 +46,7 @@ class UserDao
     public function deleteUser($userId)
     {
         $stmt = $this->db->prepare("DELETE FROM users WHERE uid = ?");
-        $stmt->bindValue(4, $user->getId(), PDO::PARAM_INT);
+        $stmt->bindValue(1, $userId, PDO::PARAM_INT);
         $stmt->execute();
     }
 

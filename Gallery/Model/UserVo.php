@@ -24,6 +24,9 @@ class UserVo
 
     public function getUsername()
     {
+        if($this->username == null) {
+            return '[deleted]';
+        }
         return $this->username;
     }
 
@@ -40,6 +43,16 @@ class UserVo
     public function setIsOnline($isOnline)
     {
         $this->isOnline = $isOnline;
+    }
+
+    public function setUsername($username)
+    {
+        $this->username = $username;
+    }
+
+    public function setPassword($password)
+    {
+        $this->password = $password;
     }
 }
 

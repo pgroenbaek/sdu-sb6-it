@@ -38,8 +38,8 @@ $loader->register();
 
 // Init and configure DI container.
 $container = new Container();
-$container->bindArguments('Gallery\\Model\\UserDao', ['db' => $db]); // Not sure if this is the correct thing to do, but it works.
-$container->bindArguments('Gallery\\Model\\ImageDao', ['db' => $db]); // Not sure if this is the correct thing to do, but it works.
+$container->bindArguments('Gallery\\Model\\UserDao', ['db' => $db]);
+$container->bindArguments('Gallery\\Model\\ImageDao', ['db' => $db]);
 
 
 //********* Routing *********//
@@ -47,12 +47,20 @@ $container->bindArguments('Gallery\\Model\\ImageDao', ['db' => $db]); // Not sur
 // Init router and add routes.
 $router = new Router();
 $router->addRoute('GET', '/', ['Gallery\\Controller\\GalleryController', 'viewGallery']);
+$router->addRoute('POST', '/', ['Gallery\\Controller\\GalleryController', 'retrieveGalleryPage']);
+$router->addRoute('GET', '/image/{imageId:\d+}', ['Gallery\\Controller\\GalleryController', 'viewImage']);
 $router->addRoute('GET', '/upload', ['Gallery\\Controller\\GalleryController', 'viewUpload']);
-$router->addRoute('POST', '/', ['Gallery\\Controller\\GalleryController', 'performUpload']);
+$router->addRoute('POST', '/upload', ['Gallery\\Controller\\GalleryController', 'performUpload']);
+$router->addRoute('GET', '/image/delete/{imageId:\d+}', ['Gallery\\Controller\\GalleryController', 'viewDeleteImage']);
+$router->addRoute('POST', '/image/delete', ['Gallery\\Controller\\GalleryController', 'performDeleteImage']);
 
 $router->addRoute('GET', '/users', ['Gallery\\Controller\\UsersController', 'viewUsers']);
 $router->addRoute('GET', '/users/add', ['Gallery\\Controller\\UsersController', 'viewAddUser']);
-$router->addRoute('POST', '/users', ['Gallery\\Controller\\UsersController', 'performAddUser']);
+$router->addRoute('POST', '/users/add', ['Gallery\\Controller\\UsersController', 'performAddUser']);
+$router->addRoute('GET', '/users/edit/{userId:\d+}', ['Gallery\\Controller\\UsersController', 'viewEditUser']);
+$router->addRoute('POST', '/users/edit', ['Gallery\\Controller\\UsersController', 'performEditUser']);
+$router->addRoute('GET', '/users/delete/{userId:\d+}', ['Gallery\\Controller\\UsersController', 'viewDeleteUser']);
+$router->addRoute('POST', '/users/delete', ['Gallery\\Controller\\UsersController', 'performDeleteUser']);
 
 $router->addRoute('POST', '/login', ['Gallery\\Controller\\LoginController', 'performLogin']);
 $router->addRoute('GET', '/logout', ['Gallery\\Controller\\LoginController', 'performLogout']);
